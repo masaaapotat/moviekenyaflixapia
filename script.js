@@ -73,3 +73,10 @@ async function add_searched_movies_to_dom() {
     const cards = document.querySelectorAll('.card')
     addClickEffectToCard(cards)
 }
+
+// FUNCTION TO ADD THE CLICK EFFECT TO THE CARD
+function addClickEffectToCard (cards) {
+    cards.forEach(card => {
+        card.addEventListener('click', () => show_popup(card))
+    })
+}
