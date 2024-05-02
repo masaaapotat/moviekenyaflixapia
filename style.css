@@ -6,3 +6,11 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+body {
+    background-color: #151515;
+  }
+  /* Styling for webkit scrollbars*/
+  /* removes the scroll bar */
+  ::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+  }
