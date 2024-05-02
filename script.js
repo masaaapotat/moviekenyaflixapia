@@ -33,3 +33,43 @@ async function searchedMovies(API_KEY, searchTerm) {
 }
 // adding a click event listener to the search button
 searchButton.addEventListener('click', add_searched_movies_to_dom)
+
+// function to add the searched item to the dom
+async function add_searched_movies_to_dom() {
+    // console.log("Search Button Clicked");  // Check if the function is triggered
+    console.log("Search Term:", input.value);  // Verify that the input value is read correctly
+
+    const data = await searchedMovies(API_KEY, input.value);
+    // console.log(data);  // Check what data is returned from the API
+
+    // Updating Main Grid Title from main_grid_title to "Search Results..
+    main_grid_title.innerText = `Search Results...`
+    // map() function is being used to iterate over each item in the data array. 
+    main_grid.innerHTML = data.map(e => {
+        // displaying the titles
+        // console.log(e.title);
+        return `
+        <div class="card" data-id="${e.id}">
+                <div class="img">
+                    <img src="${image_path + e.poster_path}">
+                </div>
+                <div class="info">
+                    <h2>${e.title}</h2>
+                    <div class="single-info">
+                        <span>Rate: </span>
+                        <span>${e.vote_average} / 10</span>
+                    </div>
+                    <div class="single-info">
+                        <span>Release Date: </span>
+                        <span>${e.release_date}</span>
+                    </div>
+                </div>
+            </div>
+    `
+    // Join all HTML strings into one to set as innerHTML of  main grid    
+    }).join('');
+
+    // we want to ensure that when we click the card, a pop should display
+    const cards = document.querySelectorAll('.card')
+    addClickEffectToCard(cards)
+}
