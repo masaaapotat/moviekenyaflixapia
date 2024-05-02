@@ -47,3 +47,51 @@ body {
     height: 30%;
     background-image: linear-gradient(to top, #151515, transparent);
   }
+  
+.movies-grid {
+    /* display items horizontally */
+    display: flex;
+  
+    /* Align items to the start  */
+    align-items: flex-start;
+    justify-content: center;
+  
+    /* Allow items to wrap onto multiple lines if needed */
+    flex-wrap: wrap;
+  
+    /* Set space between the flex items */
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .movies-container {
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+  }
+  .search {
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+    margin-top: 2rem;
+    padding: 2rem 0 1rem;
+}
+.search input,
+.search button {
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 0, 0, .6);
+    color: #fff;
+    border-radius: 1.5rem;
+}
+.search button {
+    cursor: pointer;
+}
+.search button:hover { background-color: rgba(255, 0, 0, .6); } 
+.search button:active {
+    /* Reduce the button size to 90% of its original during active click */
+    transform: scale(0.9);
+}
