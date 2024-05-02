@@ -102,3 +102,27 @@ async function getMovieById(id) {
 // getMovieById('527433f85c04959fdf15e2e588f9122d', 550)
 //     .then(result => console.log(result))
 //     .catch(error => console.error(error));
+
+
+// Fetches a movie from TMDb by its trailer
+async function getMovieByTrailer(id) {
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const respData = await response.json();
+
+        // Check if there are any videos
+        if (respData.results && respData.results.length > 0) {
+            // Optionally filter for trailers if necessary; assuming the first video is acceptable otherwise
+            const trailer = respData.results.find(video => video.type === "Trailer");
+            return trailer ? trailer.key : null; // Return the key of the trailer, or null if no trailer found
+        } else {
+            return null; // Return null if no videos available
+        }
+    } catch (error) {
+        console.error('Error fetching movie trailer:', error);
+        return null; // Return null to indicate failure
+    }
+}
