@@ -126,3 +126,14 @@ async function getMovieByTrailer(id) {
         return null; // Return null to indicate failure
     }
 }
+// Usage example to check if the function works
+// getMovieByTrailer(500)  // Replace 500 with a valid movie ID known to have trailers
+//     .then(trailerKey => {
+//         if (trailerKey) {
+//             console.log('Trailer Key:', trailerKey);
+//         } else {
+//             console.log('No valid trailer key found.');
+//         }
+//     })
+//     .catch(error => console.error('Failed to fetch movie trailer:', error));
+// // NOT WORKING
