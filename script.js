@@ -98,3 +98,7 @@ async function getMovieById(id) {
         return null; // Gracefully handle errors by returning null
     }
 }
+// ENSURING THAT THE getMovieById FUNCTION IS WORKING
+// getMovieById('527433f85c04959fdf15e2e588f9122d', 550)
+//     .then(result => console.log(result))
+//     .catch(error => console.error(error));
