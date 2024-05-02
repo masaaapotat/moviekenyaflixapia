@@ -31,3 +31,5 @@ async function searchedMovies(API_KEY, searchTerm) {
         return [];
     }
 }
+// adding a click event listener to the search button
+searchButton.addEventListener('click', add_searched_movies_to_dom)
