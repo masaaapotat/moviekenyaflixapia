@@ -80,3 +80,21 @@ function addClickEffectToCard (cards) {
         card.addEventListener('click', () => show_popup(card))
     })
 }
+
+// search the movies by id
+// Fetches a movie from TMDb by its ID
+async function getMovieById(id) {
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data; // Successfully returns the movie data
+    } catch (error) {
+        console.error('Error fetching movie by ID:', error);
+        return null; // Gracefully handle errors by returning null
+    }
+}
