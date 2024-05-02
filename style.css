@@ -14,3 +14,36 @@ body {
   ::-webkit-scrollbar {
     display: none; /* Hides the scrollbar */
   }
+  .card {
+    /*  clamp() ensures that the width of the card is responsive yet within specified bounds. */
+    width: clamp(150px, 95vw, 250px);
+    /* creates a shadow around the card */
+    box-shadow: 0 0 0.5rem rgba(255, 0, 0, 1);
+    outline: 2px solid rgba(255, 0, 0, 0.6);
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0.5rem;
+  }
+  .img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    /* adds an animation effect to transformations */
+    transition: 200ms ease-in-out transform;
+  }
+  .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* img::before add decorative content before the actual content of the .img element. */
+  .img::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background-image: linear-gradient(to top, #151515, transparent);
+  }
